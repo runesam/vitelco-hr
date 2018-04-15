@@ -20,12 +20,13 @@
     color: #ECF0F1;
 }
 
+.animate {
+    @include animate(all ease 0.2s);
+}
+
 .left-menu {
     width: 270px;
     height: 100vh;
-    * {
-        @include animate(all ease 0.3s);
-    }
     .left-menu__tag {
         height: 60px;
         font-size: 1.3em;
@@ -215,6 +216,167 @@
                     width: 200px;
                     top: 0;
                 }
+            }
+        }
+    }
+}
+
+.header {
+    height: 60px;
+    background: #ededed;
+    border-bottom: 1px solid #d9dee4;
+    position: fixed;
+    width: calc(100% - 270px);
+    right: 0;
+    top: 0;
+    color: #2A3F54;
+    & > button {
+        outline: 0;
+        border: none;
+        background: transparent;
+        font-size: 1.8em;
+        line-height: 58px;
+        float: left;
+        width: 60px;
+        color: #2A3F54;
+        &:hover {
+            background-color: #2A3F54;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    .notification, .profile {
+        float: right;
+    }
+    .profile {
+        position: relative;
+        .profile__button {
+            outline: 0;
+            padding: 0 10px;
+            &:hover, &.profile__button--active {
+                background-color: #aaaaaa;
+                color: white;
+            }
+            .profile__image {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                float: left;
+                margin-top: 5px;
+                img {
+                    width: 100%;
+                }
+            }
+            span {
+                line-height: 60px;
+                padding: 10px;
+            }
+            i {
+                font-size: 14px;
+            }
+        }
+        .profile__content {
+            width: 250px;
+            height: 0;
+            right: 0;
+            overflow: hidden;
+            border: 1px solid #d9dee4;
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+            border-top: none;
+            position: absolute;
+            opacity: 0;
+            &.profile__content--active {
+                height: 148px;
+                opacity: 1;
+            }
+            ul {
+                list-style: none;
+                display: block;
+                padding: 0;
+                li {
+                    &:hover {
+                        background-color: lightgrey;
+                        * {
+                            color: white;
+                        }
+                    }
+                    a {
+                        display: block;
+                        width: 100%;
+                        padding: 0 10px;
+                        line-height: calc(75px / 2);
+                        text-align: left;
+                        text-decoration: none;
+                        .badge {
+                            display: inline-block;
+                            min-width: 10px;
+                            padding: 3px 7px;
+                            font-size: 12px;
+                            font-weight: 700;
+                            line-height: 1;
+                            color: #fff;
+                            text-align: center;
+                            white-space: nowrap;
+                            vertical-align: middle;
+                            background-color: firebrick;
+                            border-radius: 10px;
+                            margin-left: 20px;
+                        }
+                        i {
+                            float: right;
+                            line-height: calc(75px / 2);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    .notification {
+        width: 70px;
+        position: relative;
+        .notification__button {
+            position: relative;
+            outline: 0;
+            &:hover, &.notification__button--active {
+                background-color: #aaaaaa;
+                color: white;
+            }
+            i {
+                line-height: 60px;
+                font-size: 25px;
+            }
+            div {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                font-size: 13px;
+                text-align: center;
+                line-height: 18px;
+                background: #1ABB9C;
+                border: 1px solid #1ABB9C;
+                color: #fff;
+                position: absolute;
+                right: 15px;
+                top: 10px;
+            }
+        }
+        .notification__content {
+            width: 300px;
+            height: 0;
+            right: 0;
+            overflow: hidden;
+            border: 1px solid #d9dee4;
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+            border-top: none;
+            position: absolute;
+            opacity: 0;
+            &.notification__content--active {
+                height: 298px;
+                opacity: 1;
             }
         }
     }

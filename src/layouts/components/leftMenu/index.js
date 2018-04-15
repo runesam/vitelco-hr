@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import MenuSections from './MenuSections'
-import { getLeftMenuData, toggleLeftMenuSize } from './../actions/leftMenu'
+import MenuSections from './MenuSections';
+import { getLeftMenuData, toggleLeftMenuSize } from './../../../actions/leftMenu';
 
 class LeftMenu extends PureComponent {
     componentDidMount() {
@@ -23,7 +23,7 @@ class LeftMenu extends PureComponent {
                 <div className='left-menu__profile'>
                     <div className='profile__image'>
                         <img
-                            src='https://colorlib.com/polygon/gentelella/images/img.jpg'
+                            src='https://avatars0.githubusercontent.com/u/18414089?s=400&u=5c532e90d887b114bfc6c286ad5d64475b13e23f&v=4'
                             alt='profile tag goes here'
                         />
                     </div>

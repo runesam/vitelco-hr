@@ -1,8 +1,9 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
 import PropTypes from 'prop-types'
 import './PageLayout.scss'
-import LeftMenu from './../../components/LeftMenu'
+
+import LeftMenu from './../components/leftMenu';
+import Header from './../components/header';
 
 export const PageLayout = ({ children }) => (
     <div className='text-center'>
@@ -11,10 +12,7 @@ export const PageLayout = ({ children }) => (
         </div>
         <div className='page-layout__viewport'>
             <div className='page-layout__header'>
-                <h1>React Redux Starter Kit</h1>
-                <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
-                {' · '}
-                <Link to='/counter' activeClassName='page-layout__nav-item--active'>Counter</Link>
+                <Header />
             </div>
             <div className='page-layout__content'>
                 {children}

@@ -21,7 +21,7 @@ class CategoryMenu extends PureComponent {
     render() {
         return (
             <div
-                className={`category ${this.props.active[this.props.item.id] ? 'category--active' : ''}`}
+                className={`category animate ${this.props.active[this.props.item.id] ? 'category--active' : ''}`}
                 style={this.props.active[this.props.item.id] ? { height: (this.props.item.children.length * 40) + 50 } : {}}
             >
                 <div
@@ -35,7 +35,7 @@ class CategoryMenu extends PureComponent {
                     <span>{this.props.item.name}</span>
                     <i className={this.props.active[this.props.item.id] ? 'fas fa-angle-up' : 'fas fa-angle-down'} />
                 </div>
-                <div className='category__sub' style={this.props.active[this.props.item.id] ? { height: this.props.item.children.length * 40 } : {}}>
+                <div className='category__sub animate' style={this.props.active[this.props.item.id] ? { height: this.props.item.children.length * 40 } : {}}>
                     <ul>
                         {this.renderSubItems(this.props.item.children)}
                     </ul>

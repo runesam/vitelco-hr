@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import CategoryMenu from './../components/CategoryMenu'
-import A from './../statics/images/asa.svg'
+import CategoryMenu from './CategoryMenu'
+import A from './../../../statics/images/asa.svg'
 
 class MenuSections extends PureComponent {
     constructor(props) {
