@@ -1,20 +1,18 @@
-import { combineReducers } from 'redux'
-import location from './location'
-import leftMenu from './leftMenu'
+import { combineReducers } from 'redux';
+import location from './location';
+import leftMenu from './leftMenu';
 
-export const makeRootReducer = (asyncReducers) => {
-  return combineReducers({
+export const makeRootReducer = asyncReducers => combineReducers({
     location,
     leftMenu,
-    ...asyncReducers
-  })
-}
+    ...asyncReducers,
+});
 
 export const injectReducer = (store, { key, reducer }) => {
-  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return
+    if (Object.hasOwnProperty.call(store.asyncReducers, key)) return;
+    const temp = Object.assign({}, store);
+    temp.asyncReducers[key] = reducer;
+    store.replaceReducer(makeRootReducer(temp.asyncReducers));
+};
 
-  store.asyncReducers[key] = reducer
-  store.replaceReducer(makeRootReducer(store.asyncReducers))
-}
-
-export default makeRootReducer
+export default makeRootReducer;

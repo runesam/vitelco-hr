@@ -1,58 +1,76 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import MenuSections from './MenuSections'
-import { getLeftMenuData } from './../actions/leftMenu'
 import PropTypes from 'prop-types'
 
+import MenuSections from './MenuSections'
+import { getLeftMenuData, toggleLeftMenuSize } from './../actions/leftMenu'
+
 class LeftMenu extends PureComponent {
-  componentDidMount () {
-    this.props.getLeftMenuData()
-  }
-  render () {
-    return (
-      <div className='left-menu'>
-        <div className='left-menu__tag'>
-          <i className='fab fa-adn' />
-          <span> VITELCO - HR Admin </span>
-        </div>
-        <div className='left-menu__profile'>
-          <div className='profile__image'>
-            <img src='https://colorlib.com/polygon/gentelella/images/img.jpg' alt='profile image goes here' />
-          </div>
-          <p className='profile__word'>Welcome,</p>
-          <p className='profile__name'>Sam Ewdala</p>
-        </div>
-        <div className='left-menu__center'>
-          <MenuSections menuData={this.props.leftMenu} />
-        </div>
-        <div className='left-menu__bottom'>
-          <a data-toggle='tooltip' data-placement='top' title='' data-original-title='Settings'>
-            <span className='fas fa-cog' aria-hidden='true' />
-          </a>
-          <a data-toggle='tooltip' data-placement='top' title='' data-original-title='FullScreen'>
-            <span className='fas fa-arrows-alt' aria-hidden='true' />
-          </a>
-          <a data-toggle='tooltip' data-placement='top' title='' data-original-title='Lock'>
-            <span className='fas fa-eye-slash' aria-hidden='true' />
-          </a>
-          <a data-toggle='tooltip' data-placement='top' title='' href='login.html' data-original-title='Logout'>
-            <span className='fas fa-power-off' aria-hidden='true' />
-          </a>
-        </div>
-      </div>
-    )
-  }
+    componentDidMount() {
+        this.props.getLeftMenuData();
+        setTimeout(() => {
+            // this.props.toggleLeftMenuSize();
+        }, 2000);
+    }
+
+    render() {
+        return (
+            <div className={`left-menu ${this.props.leftMenu.small ? 'small' : ''}`}>
+                <div className='left-menu__tag'>
+                    <i className='fab fa-adn' />
+                    <span> VITELCO - HR Admin </span>
+                </div>
+                <div className='left-menu__profile'>
+                    <div className='profile__image'>
+                        <img
+                            src='https://colorlib.com/polygon/gentelella/images/img.jpg'
+                            alt='profile tag goes here'
+                        />
+                    </div>
+                    <p className='profile__word'>Welcome,</p>
+                    <p className='profile__name'>Sam Ewdala</p>
+                </div>
+                <div className='left-menu__center'>
+                    <MenuSections menuData={this.props.leftMenu.data} />
+                </div>
+                <div className='left-menu__bottom'>
+                    <a href='/#' data-toggle='tooltip' data-placement='top' title='' data-original-title='Settings'>
+                        <span className='fas fa-cog' aria-hidden='true' />
+                    </a>
+                    <a href='/#' data-toggle='tooltip' data-placement='top' title='' data-original-title='FullScreen'>
+                        <span className='fas fa-arrows-alt' aria-hidden='true' />
+                    </a>
+                    <a href='/#' data-toggle='tooltip' data-placement='top' title='' data-original-title='Lock'>
+                        <span className='fas fa-eye-slash' aria-hidden='true' />
+                    </a>
+                    <a data-toggle='tooltip' data-placement='top' title='' href='login.html' data-original-title='Logout'>
+                        <span className='fas fa-power-off' aria-hidden='true' />
+                    </a>
+                </div>
+            </div>
+        )
+    }
 }
 
 LeftMenu.propTypes = {
-  leftMenu: PropTypes.array,
-  getLeftMenuData: PropTypes.func
+    leftMenu: PropTypes.object,
+    getLeftMenuData: PropTypes.func,
+    toggleLeftMenuSize: PropTypes.func,
 }
 
-function mapStateToProps ({ leftMenu }) {
-  return {
-    leftMenu
-  }
+LeftMenu.defaultProps = {
+    leftMenu: PropTypes.object,
+    getLeftMenuData: PropTypes.func,
+    toggleLeftMenuSize: PropTypes.func,
 }
 
-export default connect(mapStateToProps, { getLeftMenuData })(LeftMenu)
+function mapStateToProps({ leftMenu }) {
+    return {
+        leftMenu,
+    }
+}
+
+export default connect(mapStateToProps, {
+    getLeftMenuData,
+    toggleLeftMenuSize,
+})(LeftMenu)

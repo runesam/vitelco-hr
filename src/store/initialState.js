@@ -1,3 +1,6 @@
 module.exports = {
-  test: 4000
+    leftMenu: {
+        data: [],
+        small: false,
+    },
 }
