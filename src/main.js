@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import './styles/main.scss'
+import './../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+
 
 // Store Initialization
 // ------------------------------------

@@ -3,8 +3,12 @@
     transition: $data;
 }
 
+html {
+    overflow: hidden;
+}
+
 .page-layout__viewport {
-    padding-top: 4rem;
+    padding-top: 60px;
 }
 
 .page-layout__nav-item--active {

@@ -1,0 +1,25 @@
+.content {
+    width: calc(100% - 270px);
+    overflow: auto;
+    height: calc(100vh - 60px);
+    .content__top {
+        color: #73879C;
+        display: inline-block;
+        width: 100%;
+        padding: 15px;
+        & > * {
+            &:first-child{
+                float: left;
+            }
+            &:last-child {
+                float: right;
+            }
+        }
+    }
+    .table {
+        padding: 15px;
+        .react-bs-table-sizePerPage-dropdown {
+            float: left;
+        }
+    }
+}

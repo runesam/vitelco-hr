@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import TableContainer from './components/tableContainer';
+import './index.scss';
 
 class Container extends Component {
     static test = {
@@ -9,9 +14,29 @@ class Container extends Component {
     }
     render() {
         return (
-            <div>test me</div>
+            <div className='content' style={this.props.leftMenu.small ? { width: 'calc(100% - 70px)' } : {}}>
+                <div className='content__top'>
+                    <h3>Users</h3>
+                    <button className='btn btn-outline-primary'>Add User</button>
+                </div>
+                <TableContainer />
+            </div>
         )
     }
 }
 
-export default Container;
+Container.propTypes = {
+    leftMenu: PropTypes.object,
+}
+
+Container.defaultProps = {
+    leftMenu: PropTypes.object,
+}
+
+function mapStateToProps({ leftMenu }) {
+    return {
+        leftMenu,
+    }
+}
+
+export default connect(mapStateToProps, { })(Container);
